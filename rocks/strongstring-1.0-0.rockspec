@@ -1,11 +1,11 @@
 package = "strongstring"
 version = "1.0-0"
 source = {
-   url = "*** please add URL for source tarball, zip or repository here ***"
+   url = "https://github.com/pavelsaman/strongstring.git"
 }
 description = {
    summary = "Strongstring defines functions for string manipulation.",
-   homepage = "*** please enter a project homepage ***",
+   homepage = "https://github.com/pavelsaman/strongstring",
    license = "MIT"
 }
 build = {

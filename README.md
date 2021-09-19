@@ -2,7 +2,8 @@
 
 `strongstring` defines functions for string manipulation.
 
-![unit checks workflow](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=master)
+![unit checks master](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=master)
+![unit checks dev](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=dev)
 
 # Basic usage
 
@@ -61,4 +62,3 @@ I will likely extend the public API as I encounter more situations where some st
 # License
 
 `strongstring` is licensed under the MIT license. See LICENSE.md for details on the MIT license.
-

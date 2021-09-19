@@ -62,7 +62,7 @@ $ cd strongstring
 $ busted test/*
 ```
 
-All automated checks are run in a CI pipeline here in Github Actions. See the status on the top of this README.md file.
+All automated checks run in a CI pipeline here in GitHub Actions. See the status on the top of this README.md file.
 
 # Future plans
 

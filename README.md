@@ -2,7 +2,7 @@
 
 `strongstring` defines functions for string manipulation.
 
-![unit checks master](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=master)
+![unit checks](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=master)
 
 # Basic usage
 

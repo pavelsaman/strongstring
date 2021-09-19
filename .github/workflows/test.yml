@@ -25,7 +25,7 @@ jobs:
       - name: build
         run: |
           luarocks install busted
-          luarocks make --tree ./rocks
+          luarocks make
 
       - name: test
         run: |

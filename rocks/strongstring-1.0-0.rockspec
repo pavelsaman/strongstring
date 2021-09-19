@@ -1,7 +1,7 @@
 package = "strongstring"
 version = "1.0-0"
 source = {
-   url = "https://github.com/pavelsaman/strongstring.git"
+   url = "git+https://github.com/pavelsaman/strongstring.git"
 }
 description = {
    summary = "Strongstring defines functions for string manipulation.",

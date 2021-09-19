@@ -8,7 +8,7 @@ description = {
    summary = "strongstring defines functions for string manipulation.",
    detailed = [[
         strongstring defines functions for string manipulation.
-        - No dependencies on other libraries
+        - no dependencies on other libraries
    ]],
    homepage = "https://github.com/pavelsaman/strongstring",
    license = "MIT"

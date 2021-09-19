@@ -1,7 +1,7 @@
 package = "strongstring"
 version = "1.0-0"
 source = {
-   url = "git+https://github.com/pavelsaman/strongstring.git"
+   url = "git+https://github.com/pavelsaman/strongstring.git",
    tag = "1.0-0"
 }
 description = {

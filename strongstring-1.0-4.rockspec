@@ -6,7 +6,7 @@ source = {
 }
 dependencies = {
    "lua >= 5.1",
-   "utf8 >= 1.2-0"
+   "luautf8 >= 0.1.2-2"
 }
 description = {
    summary = "strongstring defines functions for string manipulation.",

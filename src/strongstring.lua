@@ -1,4 +1,6 @@
 
+local utf = require('lua-utf8')
+
 local strongstring = {}
 
 function strongstring.split(str, sep)
@@ -10,7 +12,7 @@ function strongstring.split(str, sep)
     if not str then return nil end
     if not sep or sep == '' then return {str} end
     if str == '' then return {str} end
-    if string.len(sep) > 1 then return nil end
+    if utf.len(sep) > 1 then return nil end
 
     for token in string.gmatch(str, "[^" .. sep .. "]+") do
         table.insert(token_table, token)
@@ -44,7 +46,7 @@ function strongstring.sepconcat(...)
     end
 
     if sep == '' then return final_string end
-    return final_string:sub(0, (sep:len() * -1) - 1)
+    return utf.sub(final_string, 0, (utf.len(sep) * -1) - 1)
 end
 
 function strongstring.tableconcat(t)
@@ -62,12 +64,12 @@ end
 
 function strongstring.fupper(str)
     if type(str) ~= 'string' then return nil end
-    return str:sub(0, 1):upper() .. str:sub(2, str:len())
+    return utf.upper(utf.sub(str, 0, 1)) .. utf.sub(str, 2, utf.len(str))
 end
 
 function strongstring.flower(str)
     if type(str) ~= 'string' then return nil end
-    return str:sub(0, 1):lower() .. str:sub(2, str:len())
+    return utf.lower(utf.sub(str, 0, 1)) .. utf.sub(str, 2, utf.len(str))
 end
 
 return strongstring

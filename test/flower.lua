@@ -34,4 +34,9 @@ describe('stringstrong.flower() #lower', function()
         local string1 = ' '
         assert.are.equals(' ', strongstring.flower(string1))
     end)
+
+    it('utf character', function()
+        local string1 = 'Ř'
+        assert.are.equals('ř', strongstring.flower(string1))
+    end)
 end)

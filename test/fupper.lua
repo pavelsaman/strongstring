@@ -34,4 +34,9 @@ describe('stringstrong.fupper() #upper', function()
         local string1 = ' '
         assert.are.equals(' ', strongstring.fupper(string1))
     end)
+
+    it('utf character', function()
+        local string1 = 'ř'
+        assert.are.equals('Ř', strongstring.fupper(string1))
+    end)
 end)

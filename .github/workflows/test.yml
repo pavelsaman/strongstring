@@ -1,4 +1,4 @@
-name: Run unit checks
+name: Unit checks
 
 on:
   push:

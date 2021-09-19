@@ -2,6 +2,8 @@
 
 `strongstring` defines functions for string manipulation.
 
+![unit checks workflow](https://github.com/pavelsaman/strongstring/actions/workflows/test/badge.svg)
+
 # Basic usage
 
 ```lua

@@ -45,6 +45,14 @@ Like `concat()` but takes a table as an argument.
 
 Like `sepconcat()` but takes a table and separator as arguments.
 
+## `fupper(string)`
+
+Makes the first character upper case.
+
+## `flower(string)`
+
+Makes the first character lower case.
+
 # Automated checks
 
 Run all of them with busted:
@@ -53,6 +61,8 @@ Run all of them with busted:
 $ cd strongstring
 $ busted test/*
 ```
+
+All automated checks are run in a CI pipeline here in Github Actions. See the status on the top of this README.md file.
 
 # Future plans
 

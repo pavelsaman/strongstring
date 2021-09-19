@@ -60,4 +60,14 @@ function strongstring.septableconcat(t, sep)
     return strongstring.sepconcat(table.unpack(t))
 end
 
+function strongstring.fupper(str)
+    if type(str) ~= 'string' then return nil end
+    return str:sub(0, 1):upper() .. str:sub(2, str:len())
+end
+
+function strongstring.flower(str)
+    if type(str) ~= 'string' then return nil end
+    return str:sub(0, 1):lower() .. str:sub(2, str:len())
+end
+
 return strongstring

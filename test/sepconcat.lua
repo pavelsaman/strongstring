@@ -1,4 +1,4 @@
-describe('stringstrong.concat() #concat #sep', function()
+describe('stringstrong.sepconcat() #concat #sep', function()
     local strongstring
 
     lazy_setup(function()

@@ -3,7 +3,6 @@
 `strongstring` defines functions for string manipulation.
 
 ![unit checks master](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=master)
-![unit checks dev](https://github.com/pavelsaman/strongstring/actions/workflows/test.yml/badge.svg?branch=dev)
 
 # Basic usage
 

@@ -53,15 +53,15 @@ Makes the first character upper case.
 
 Makes the first character lower case.
 
-## `ltrim(string`
+## `ltrim(string)`
 
 Trims all whitespace (including unicode) on the right side of the string.
 
-## `rtrim(string`
+## `rtrim(string)`
 
 Trims all whitespace (including unicode) on the left side of the string.
 
-## `trim(string`
+## `trim(string)`
 
 Performs `ltrim()` and `rtrim()` on the string and returns the result.
 

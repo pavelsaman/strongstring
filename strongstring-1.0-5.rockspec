@@ -1,15 +1,15 @@
 package = "strongstring"
-version = "1.0-0"
+version = "1.0-5"
 source = {
    url = "git+https://github.com/pavelsaman/strongstring.git",
-   tag = "1.0-0"
+   tag = "1.0-5"
+}
+dependencies = {
+   "lua >= 5.1",
+   "luautf8 >= 0.1.2-2"
 }
 description = {
    summary = "strongstring defines functions for string manipulation.",
-   detailed = [[
-        strongstring defines functions for string manipulation.
-        - No dependencies on other libraries
-    ]],
    homepage = "https://github.com/pavelsaman/strongstring",
    license = "MIT"
 }

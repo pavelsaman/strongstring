@@ -65,6 +65,29 @@ Trims all whitespace (including unicode) on the left side of the string.
 
 Performs `ltrim()` and `rtrim()` on the string and returns the result.
 
+## `lpad(string, [pad_string,] length)`
+
+Adds `pad_string` to the left of `string` so that the total length is equal to `length`.
+
+`pad_string` is optional, it defaults to ` ` (SPACE).
+
+```lua
+print(strongstring.lpad('abc', '*', 5)) -- **abc
+print(strongstring.lpad('abc', 5)) -- "  abc" (two spaces and "abc")
+print(strongstring.lpad('abc', '*!@', 5)) -- *!abc
+print(strongstring.lpad('abc', '*!@', 7)) -- *!@*abc
+```
+
+## `rpad(string, [pad_string,] length)`
+
+Adds `pad_string` to the right of `string` so that the total length is equal to `length`.
+
+`pad_string` is optional, it defaults to ` ` (SPACE).
+
+```lua
+print(strongstring.rpad('abc', '*', 6)) -- abc***
+```
+
 # Automated checks
 
 Run all of them with busted:

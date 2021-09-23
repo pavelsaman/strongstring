@@ -3,9 +3,51 @@ local utf = require('lua-utf8')
 
 local strongstring = {}
 local EMPTY = ''
+local SPACE = ' '
+
+local function _isNot(argument, argument_type)
+    return type(argument) ~= argument_type
+end
 
 local function _isNotString(argument)
-    return type(argument) ~= 'string'
+    return _isNot(argument, 'string')
+end
+
+local function _isNotNumber(argument)
+    return _isNot(argument, 'number')
+end
+
+local function _isNotTable(argument)
+    return _isNot(argument, 'table')
+end
+
+local function _isNumber(argument)
+    return not _isNot(argument, 'number')
+end
+
+local function _pad(str, pad_str, length)
+    if _isNotString(str) then return nil end
+    if _isNotString(pad_str) then
+        if _isNumber(pad_str) and length == nil then
+            length = pad_str
+            pad_str = EMPTY
+        else
+            return nil
+        end
+    end
+    if _isNotNumber(length) then return nil end
+
+    if pad_str == EMPTY then pad_str = SPACE end
+    local final_pad_str = EMPTY
+
+    local i = 0
+    while utf.len(final_pad_str) + utf.len(str) < length  do
+        i = i + 1
+        if i > utf.len(pad_str) then i = 1 end
+        final_pad_str = final_pad_str .. utf.sub(pad_str, i, i)
+    end
+
+    return final_pad_str
 end
 
 function strongstring.split(str, sep)
@@ -55,7 +97,7 @@ function strongstring.sepconcat(...)
 end
 
 function strongstring.tableconcat(t)
-    if type(t) ~= 'table' then return nil end
+    if _isNotTable(t) then return nil end
     return strongstring.concat(table.unpack(t))
 end
 
@@ -92,6 +134,18 @@ function strongstring.trim(str)
     
     local final_str = strongstring.ltrim(str)
     return strongstring.rtrim(final_str)
+end
+
+function strongstring.lpad(str, pad_str, length)
+    local final_pad_string = _pad(str, pad_str, length)
+    if final_pad_string == nil then return nil end
+    return final_pad_string .. str
+end
+
+function strongstring.rpad(str, pad_str, length)
+    local final_pad_string = _pad(str, pad_str, length)
+    if final_pad_string == nil then return nil end
+    return str .. final_pad_string
 end
 
 return strongstring

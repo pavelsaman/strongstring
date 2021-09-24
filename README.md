@@ -88,6 +88,26 @@ Adds `pad_string` to the right of `string` so that the total length is equal to 
 print(strongstring.rpad('abc', '*', 6)) -- abc***
 ```
 
+## `escapeMagic(string)`
+
+Returns a string with escaped magic characters.
+
+```lua
+print(strongstring.escapeMagic('[]')) -- %[%]
+```
+
+## `startsWith(string, start_string)`
+
+Returns `true` is `string` starts with `start_string`, returns `false` otherwise. Returns `nil` if `start_string` is not passed in or one of the arguments is nil or of a different data type than string.
+
+## `endsWith(string, end_string)`
+
+Returns `true` is `string` ends with `start_string`, returns `false` otherwise. Returns `nil` if `start_string` is not passed in or one of the arguments is nil or of a different data type than string.
+
+## `contains(string, search_string)`
+
+Returns `true` is `string` contains `search_string`, returns `false` otherwise. Returns `nil` if `start_string` is not passed in or one of the arguments is nil or of a different data type than string.
+
 # Automated checks
 
 Run all of them with busted:

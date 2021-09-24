@@ -1,8 +1,8 @@
 package = "strongstring"
-version = "1.0-6"
+version = "1.0-7"
 source = {
    url = "git+https://github.com/pavelsaman/strongstring.git",
-   tag = "1.0-6"
+   tag = "1.0-7"
 }
 dependencies = {
    "lua >= 5.1",

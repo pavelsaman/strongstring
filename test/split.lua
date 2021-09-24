@@ -76,4 +76,16 @@ describe('stringstrong.split() #split', function()
         local sep = '\n'
         assert.are.same({'string with', 'newline'}, strongstring.split(str, sep))
     end)
+
+    it('splits string when magic char "]" is provided', function()
+        local str = 'string]to]split'
+        local sep = ']'
+        assert.are.same({'string', 'to', 'split'}, strongstring.split(str, sep))
+    end)
+
+    it('splits string when magic char "*" is provided', function()
+        local str = 'string*to*split'
+        local sep = '*'
+        assert.are.same({'string', 'to', 'split'}, strongstring.split(str, sep))
+    end)
 end)

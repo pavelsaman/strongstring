@@ -4,6 +4,21 @@ local utf = require('lua-utf8')
 local strongstring = {}
 local EMPTY = ''
 local SPACE = ' '
+local ESCAPE_CHAR = '%'
+local MAGIC_CHARACTERS = {
+    ['('] = true,
+    [')'] = true,
+    ['.'] = true,
+    ['%'] = true,
+    ['+'] = true,
+    ['-'] = true,
+    ['*'] = true,
+    ['?'] = true,
+    ['['] = true,
+    [']'] = true,
+    ['^'] = true,
+    ['$'] = true,
+}
 
 local function _isNot(argument, argument_type)
     return type(argument) ~= argument_type
@@ -146,6 +161,47 @@ function strongstring.rpad(str, pad_str, length)
     local final_pad_string = _pad(str, pad_str, length)
     if final_pad_string == nil then return nil end
     return str .. final_pad_string
+end
+
+function strongstring.escapeMagic(str)
+    if str == nil then return nil end
+    if _isNotString(str) then return nil end
+
+    local escaped_string = EMPTY
+    for i = 1, utf.len(str), 1 do
+        local char_at = utf.sub(str, i, i)
+        if MAGIC_CHARACTERS[char_at] then
+            escaped_string = escaped_string .. ESCAPE_CHAR .. char_at
+        else
+            escaped_string = escaped_string .. char_at
+        end
+    end
+
+    return escaped_string
+end
+
+function strongstring.startsWith(str, search_str)
+    if search_str == nil then return nil end
+    if _isNotString(search_str) then return nil end
+    if _isNotString(str) then return nil end
+
+    return utf.find(str, '^' .. strongstring.escapeMagic(search_str)) ~= nil
+end
+
+function strongstring.endsWith(str, search_str)
+    if search_str == nil then return nil end
+    if _isNotString(search_str) then return nil end
+    if _isNotString(str) then return nil end
+    
+    return utf.find(str, strongstring.escapeMagic(search_str) .. '$') ~= nil
+end
+
+function strongstring.contains(str, search_str)
+    if search_str == nil then return nil end
+    if _isNotString(search_str) then return nil end
+    if _isNotString(str) then return nil end
+    
+    return utf.find(str, strongstring.escapeMagic(search_str)) ~= nil
 end
 
 return strongstring

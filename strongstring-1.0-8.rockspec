@@ -1,5 +1,5 @@
 package = "strongstring"
-version = "1.0-7"
+version = "1.0-8"
 source = {
    url = "git+https://github.com/pavelsaman/strongstring.git",
    tag = "1.0-7"

@@ -19,6 +19,13 @@ local MAGIC_CHARACTERS = {
     ['^'] = true,
     ['$'] = true,
 }
+local COMMON_WHITE_CHARS = {
+    ' ' ,
+    '\n',
+    '\r',
+    '\f',
+    '\t',
+}
 
 local function _isNot(argument, argument_type)
     return type(argument) ~= argument_type
@@ -202,6 +209,35 @@ function strongstring.contains(str, search_str)
     if _isNotString(str) then return nil end
     
     return utf.find(str, strongstring.escapeMagic(search_str)) ~= nil
+end
+
+function strongstring.deleteCommonWhiteChars(str)
+    if str == nil then return nil end
+    if _isNotString(str) then return nil end
+
+    local result = str
+    for _, char in ipairs(COMMON_WHITE_CHARS) do
+        result = utf.gsub(result, char, '')
+    end
+
+    return result
+end
+
+function strongstring.isPali(str)
+    if str == nil then return nil end
+    if _isNotString(str) then return nil end
+
+    local string = utf.lower(str)
+    string = strongstring.deleteCommonWhiteChars(string)
+
+    for i = 1, utf.len(string), 1 do
+        local char_at = utf.sub(string, i, i)
+        local char_at_end = utf.sub(string, utf.len(string) - i + 1, utf.len(string) - i + 1)
+
+        if char_at ~= char_at_end then return false end
+    end
+
+    return true
 end
 
 return strongstring

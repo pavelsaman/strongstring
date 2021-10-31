@@ -108,6 +108,16 @@ Returns `true` is `string` ends with `start_string`, returns `false` otherwise. 
 
 Returns `true` is `string` contains `search_string`, returns `false` otherwise. Returns `nil` if `start_string` is not passed in or one of the arguments is nil or of a different data type than string.
 
+## `deleteCommonWhiteChars(string)`
+
+Deletes ` ` (space), `\r`, `\n`, `\f`, `\t` from a string, that is it substitutes these characters with an empty string.
+
+## `isPali(string)`
+
+Returns `true` is the string is a palindrome.
+
+It first converts the whole string to lowercase and deletes common white spaces (see `deleteCommonWhiteChars()` function). It won't, however, find ASCII equivalents for UTF-8 chracters, e.g. `y` and `ý` are considered to be different characters even though a human might consider them the same for the sake of a palindrome. An empty string is a palindrome.
+
 # Automated checks
 
 Run all of them with busted:
